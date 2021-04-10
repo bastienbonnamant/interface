@@ -27,7 +27,7 @@ $tornado->forward();
 require_once 'car.php';
 $car = new Car('yellow',4, 'diesel');
 
-$car = new Car('green', 4, 'electric');
+$porsche = new Car('green', 4, 'electric');
 echo $car->forward();
 
 
@@ -61,6 +61,37 @@ $camion->setload(5000);
 $camion->getload();
 $camion->setstorageCapacity(0);
 echo '<br> Le camion est '. $camion->isFullOrNot()  . '<br>';
+
+
+// Highway
+require_once 'MotorWay.php';
+$A4Paris = new MotorWay();
+$A4Paris->addVehicles($porsche);
+$A4Paris->addVehicles($car);
+$A4Paris->addVehicles($camion);
+
+var_dump($A4Paris);
+
+require_once 'PedestrianWay.php';
+$piste = new PedestrianWay();
+$piste->addVehicles($bike);
+$piste->addVehicles($car);
+$piste->addVehicles($tornado);
+
+
+var_dump($piste);
+
+require_once 'ResidentialWay.php';
+$nationale = new ResidentialWay();
+$nationale->addVehicles($bike);
+$nationale->addVehicles($tornado);
+$nationale->addVehicles($porsche);
+
+var_dump($nationale);
+
+
+
+
 
 
 
