@@ -70,7 +70,6 @@ $A4Paris->addVehicles($porsche);
 $A4Paris->addVehicles($car);
 $A4Paris->addVehicles($camion);
 
-var_dump($A4Paris);
 
 require_once 'PedestrianWay.php';
 $piste = new PedestrianWay();
@@ -79,7 +78,6 @@ $piste->addVehicles($car);
 $piste->addVehicles($tornado);
 
 
-var_dump($piste);
 
 require_once 'ResidentialWay.php';
 $nationale = new ResidentialWay();
@@ -87,9 +85,21 @@ $nationale->addVehicles($bike);
 $nationale->addVehicles($tornado);
 $nationale->addVehicles($porsche);
 
-var_dump($nationale);
 
+//Frein
 
+$car->setParkBrake(false);
+try{
+    echo $car->start();
+}
+catch (LogicException $e){
+    $car->setParkBrake(true);
+    echo "Exception received : ". $e->getMessage() . "n";
+} finally {
+    echo "Ma voiture roule comme un donut";
+}
+
+echo $car->start();
 
 
 
