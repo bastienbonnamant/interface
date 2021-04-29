@@ -4,7 +4,7 @@
 
 require_once 'bicycle.php';
 $bike = new Bicycle('color',2);
-
+/*
 // Moving bike
 echo $bike->forward();
 echo '<br> Vitesse du vélo : ' . $bike->getCurrentSpeed . ' km/h' . '<br>';
@@ -88,19 +88,28 @@ $nationale->addVehicles($porsche);
 
 //Frein
 
-$car->setParkBrake(false);
+$car->setParkBrake(true);
 try{
     echo $car->start();
 }
 catch (LogicException $e){
-    $car->setParkBrake(true);
+    $car->setParkBrake(false);
     echo "Exception received : ". $e->getMessage() . "n";
 } finally {
     echo "Ma voiture roule comme un donut";
-}
+};
 
-echo $car->start();
+*/
 
+//Light
+
+
+$dolan = new Bicycle("black", 1);
+$dolan->setCurrentSpeed(12);
+echo $dolan->getCurrentSpeed();
+echo $dolan->switchON();
+
+var_dump($dolan);
 
 
 

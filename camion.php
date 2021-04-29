@@ -1,8 +1,10 @@
 <?php
 
 require_once 'vehicle.php';
+require_once 'LightableInterface.php';
 
-class Camion extends Vehicle{
+class Camion extends Vehicle implements LightableInterface
+{
 
     public const ALLOWED_ENERGIES = [
         'fuel','electric'
@@ -15,9 +17,6 @@ class Camion extends Vehicle{
     private string $energy;
 
 
-    
-
-
 
     public function __construct(string $color, int $nbSeats, string $energy, int $storageCapacity)
     {
@@ -26,6 +25,17 @@ class Camion extends Vehicle{
         $this->setstorageCapacity($storageCapacity);
 
     }
+
+    public function switchON(): string
+    {
+        return 'oui';
+    }
+
+    public function switchOFF(): string
+    {
+        return 'non';
+    }
+
 
     public function setstorageCapacity(int $storageCapacity): void
     {
